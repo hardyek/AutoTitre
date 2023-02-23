@@ -1,0 +1,10 @@
+methyl_orange
+- acid: 150 (pink)
+- alkali: 147 (yellow)
+phenolphthalein
+-acid: 148 (clear)
+-alkali: 133 (purple)
+no-indicator
+-random: 84 (Not used in indicator network training.)
+
+Total = 662

@@ -1,0 +1,11 @@
+env/
+__pycache__/
+Indicator-Network/
+StandardFirmata/
+/shelf/
+/workspace.xml
+/.ipynb
+.idea/
+.ipynb_checkpoints/
+
+
