@@ -3,6 +3,6 @@
 
 Automatic titrations using Arduino and Tensorflow.
 
-<img src="example1.png" alt="isolated" width="260"/>
-<img src="example2.png" alt="isolated" width="260"/>
+<img src="https://raw.githubusercontent.com/hardyek/titration-ML/master/example1.PNG?token=GHSAT0AAAAAAB7GGEMHOGT6Z3VVXOPHVT46Y745NCQ" alt="Acid being detected." width="260"/>
+<img src="https://raw.githubusercontent.com/hardyek/titration-ML/master/example2.PNG?token=GHSAT0AAAAAAB7GGEMHWHWA43LA32YV4BKUY745NZA" alt="Alkali being detected." width="260"/>
 
