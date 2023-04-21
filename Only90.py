@@ -60,10 +60,8 @@ def seconds_to_mmss(seconds):  # sourcery skip: remove-unnecessary-cast
 # endregion
 
 # region Model Setup
-model_dir = os.path.join('Indicator-Network','workspace','models','Indicator_Network','export','saved_model')
+model_dir = os.path.join('indicator_network_final','saved_model')
 model = tf.saved_model.load(model_dir)
-input_tensor = model.signatures['serving_default'].inputs
-output_tensor = model.signatures['serving_default'].outputs
 
 print("Model loaded.")
 # endregion
@@ -74,11 +72,11 @@ Servo.Reset()
 # endregion
 
 # region Webcam Setup
-WIDTH = 1400
-HEIGHT = 1080
-Webcam = cv2.VideoCapture('udp://@239.1.1.7:5107?overrun_nonfatal=1&fifo_size=50000000',cv2.CAP_FFMPEG) # OBS Command : VideoCapture('udp://@239.1.1.7:5107?overrun_nonfatal=1&fifo_size=50000000',cv2.CAP_FFMPEG)
-Webcam.set(cv2.CAP_PROP_FRAME_WIDTH, 1080)
-Webcam.set(cv2.CAP_PROP_FRAME_HEIGHT, 1080)
+WIDTH = 1280
+HEIGHT = 720
+Webcam = cv2.VideoCapture(0) # OBS Command : VideoCapture('udp://@239.1.1.7:5107?overrun_nonfatal=1&fifo_size=50000000',cv2.CAP_FFMPEG)
+Webcam.set(cv2.CAP_PROP_FRAME_WIDTH, WIDTH)
+Webcam.set(cv2.CAP_PROP_FRAME_HEIGHT, HEIGHT)
 font = cv2.FONT_HERSHEY_SIMPLEX
 prev_frame_time = 0
 cv2.namedWindow("Webcam")
@@ -89,7 +87,7 @@ print(f"Webcam started. ({WIDTH}x{HEIGHT})")
 INITIAL_STATE_STEPS = 100
 VAL_STATE_STEPS = 10
 
-label_map_dir = os.path.join('Indicator-Network','workspace','annotations','annotation_map.pbtxt')
+label_map_dir = os.path.join('image_annotations.pbtxt')
 category_index = label_map_util.create_category_index_from_labelmap(label_map_dir)
 
 current_stage = "Pre"
@@ -326,5 +324,5 @@ Webcam.release()
 cv2.destroyAllWindows() 
 exit()
 
-#OBS virtual camera ffmpeg script
-#ffmpeg\bin\ffmpeg.exe -y -f dshow -thread_queue_size 4096 -hwaccel cuda -hwaccel_output_format cuda -i video="OBS Virtual Camera" -f rawvideo -c:v mjpeg -qscale:v 0 -r 10 "udp://@239.1.1.7:5107?overrun_nonfatal=1&fifo_size=50000000"
+# OBS virtual camera ffmpeg script (ffmpeg install required)
+# ffmpeg\bin\ffmpeg.exe -y -f dshow -thread_queue_size 4096 -hwaccel cuda -hwaccel_output_format cuda -i video="OBS Virtual Camera" -f rawvideo -c:v mjpeg -qscale:v 0 -r 10 "udp://@239.1.1.7:5107?overrun_nonfatal=1&fifo_size=50000000"

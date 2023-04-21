@@ -15,17 +15,17 @@ class ServoClass():
         self.angle = 0
         print(f"🔧 Servo Reset ({self.angle}°)")
 
-    def Open(self):
-        self.board.digital[self.pin].write(90)
-        sleep(0.4)
-        self.angle = 90
-        print(f"🔧 Servo Opened ({self.angle}°)")
-
     def Close(self):
         self.board.digital[self.pin].write(0)
         sleep(0.4)
         self.angle = 0
         print(f"🔧 Servo Closed ({self.angle}°)")
+
+    def Open(self):
+        self.board.digital[self.pin].write(95)
+        sleep(0.4)
+        self.angle = 95
+        print(f"🔧 Servo Open ({self.angle}°)")
 
     def Move(self,angle):
         self.board.digital[self.pin].write(angle)
