@@ -3,6 +3,7 @@ from time import sleep
 
 class ServoClass():
     def __init__(self,COM,PIN):
+        sleep(1)
         self.board = Arduino(COM)
         self.pin = PIN
         self.board.digital[self.pin].mode=SERVO
