@@ -1,5 +1,5 @@
 
-# Titration ML
+### autotitre
 
 My first programming project ever, code quality is bad. I have come a long way since (I hope).
 
